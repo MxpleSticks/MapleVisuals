@@ -36,10 +36,6 @@
             text-shadow: none;
         }
 
-
-
-
-
         html,
         body {
             margin: 0;
@@ -561,7 +557,6 @@
         }
 
         @keyframes bounce {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -613,7 +608,6 @@
 
         /* Add floating animation */
         @keyframes float {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -991,6 +985,174 @@
             }
             .marquee:before, .marquee:after { width: 5rem; }
         }
+
+        /* Add these new styles */
+        .profile-container {
+            position: relative;
+            width: 185px;
+            height: 185px;
+            margin-left: 190px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-container:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .profile-hint {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .hint-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .hint-icon {
+            width: 16px;
+            height: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: pulse 1.5s infinite;
+        }
+
+        .profile-container:hover .profile-hint {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0.5;
+                transform: scale(0.95);
+            }
+        }
+
+        .game-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 400px;
+            height: 300px;
+            background: rgba(15, 15, 15, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .game-container.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .game-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 999;
+        }
+
+        .game-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .close-game {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: rgba(255, 255, 255, 0.5);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 1001;
+            transition: color 0.3s ease;
+        }
+
+        .close-game:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Keep your existing game styles but remove the margin */
+        .player {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            transition: left 0.1s ease;
+        }
+
+        .star {
+            position: absolute;
+            top: -20px;
+            width: 15px;
+            height: 15px;
+            background: gold;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            display: none;
+        }
     </style>
     
 </head>
@@ -1142,28 +1304,28 @@
                     accessible to everyone.</p>
                 <h2 id="projects">Projects</h2>
                 <div class="projects-list">
-                    <a href="#" class="project-item">
+                    <a href="https://github.com/MxpleSticks/Maple-Syrup" class="project-item">
                         <div class="project-title">Ascii Database</div>
                         <div class="project-description">A database of 3d ascii animations</div>
                         <div class="project-year">2023</div>
                     </a>
                     
-                    <a href="#" class="project-item">
-                        <div class="project-title">Modern Online Gaming Site</div>
-                        <div class="project-description">A sleek, responsive website designed for seamless online gaming experiences</div>
-                        <div class="project-year">2023</div>
+                    <a href="https://mxplesticks.github.io/novasnowwatch/" class="project-item">
+                        <div class="project-title">Virginia Snow Watch</div>
+                        <div class="project-description">A sleek, responsive website for updates on snow and radars in NOVA</div>
+                        <div class="project-year">2024</div>
                     </a>
                     
-                    <a href="#" class="project-item">
+                    <a href="https://github.com/MxpleSticks/spPi-Stock-Ticker" class="project-item">
                         <div class="project-title">Stock Ticker Application</div>
                         <div class="project-description">A real-time stock tracking app optimized for Raspberry Pi devices</div>
-                        <div class="project-year">2023</div>
+                        <div class="project-year">2025</div>
                     </a>
                     
                     <a href="#" class="project-item">
                         <div class="project-title">PS1 Style Horror Game</div>
                         <div class="project-description">A retro horror game inspired by the aesthetics and mechanics of classic PS1 titles</div>
-                        <div class="project-year">2022</div>
+                        <div class="project-year">2026</div>
                     </a>                    
                 </div>
                 <h2 id="experience">Experience</h2>
@@ -1186,9 +1348,24 @@
                         its users.</span></p>
                 </p>
 
-                <img src="c:\Users\littl\Downloads\IMG_4149.png" style="margin-left: 190px;width:185px;height:185px;">
+                <div class="profile-container">
+                    <img src="IMG_4149.png" class="profile-image">
+                    <div class="profile-hint">
+                        <span class="hint-text">Found an easter egg! Click to play</span>
+                        <svg class="hint-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.5 12a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zM12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zm1.5-10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                        </svg>
+                    </div>
+                </div>
 
-
+                <!-- Add the game container and overlay -->
+                <div class="game-overlay"></div>
+                <div class="game-container">
+                    <button class="close-game">×</button>
+                    <div class="player"></div>
+                    <div class="score">Score: <span>0</span></div>
+                    <div class="game-over">Game Over! Click to restart</div>
+                </div>
 
             </div>
         </div>
@@ -1338,6 +1515,181 @@
 
         for(let i=0; i<marqueeElementsDisplayed; i++) {
             marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+        }
+
+        // Add this to your existing script
+        const profileContainer = document.querySelector('.profile-container');
+        const gameContainer = document.querySelector('.game-container');
+        const gameOverlay = document.querySelector('.game-overlay');
+        const closeButton = document.querySelector('.close-game');
+        const player = document.querySelector('.player');
+        const scoreElement = document.querySelector('.score span');
+        const gameOverElement = document.querySelector('.game-over');
+        let score = 0;
+        let gameActive = false;
+
+        // Show game
+        profileContainer.addEventListener('click', () => {
+            gameContainer.classList.add('active');
+            gameOverlay.classList.add('active');
+            gameActive = true;
+            startGame();
+        });
+
+        // Hide game
+        function hideGame() {
+            gameContainer.classList.remove('active');
+            gameOverlay.classList.remove('active');
+            gameActive = false;
+            score = 0;
+            scoreElement.textContent = '0';
+            gameOverElement.style.display = 'none';
+            document.querySelectorAll('.star').forEach(star => star.remove());
+        }
+
+        closeButton.addEventListener('click', hideGame);
+        gameOverlay.addEventListener('click', hideGame);
+
+        // Your existing game code here, but update the updatePlayerPosition function:
+        function updatePlayerPosition(e) {
+            if (!gameActive) return;
+            const rect = gameContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const position = Math.max(10, Math.min(rect.width - 10, x));
+            player.style.left = `${position}px`;
+        }
+
+        // Rest of your game code remains the same...
+        // (Include all the createStar, startGame, and other game functions here)
+
+        // Add these game functions after your existing script code
+        function createStar() {
+            if (!gameActive) return;
+            
+            const star = document.createElement('div');
+            star.className = 'star';
+            const position = Math.random() * (gameContainer.offsetWidth - 15);
+            star.style.left = `${position}px`;
+            gameContainer.appendChild(star);
+
+            let topPosition = -20;
+            const speed = 1;
+
+            function moveStar() {
+                if (!gameActive) {
+                    star.remove();
+                    return;
+                }
+
+                topPosition += speed;
+                star.style.top = `${topPosition}px`;
+
+                // Check for collision with player
+                const playerRect = player.getBoundingClientRect();
+                const starRect = star.getBoundingClientRect();
+
+                if (topPosition > gameContainer.offsetHeight) {
+                    star.remove();
+                    checkGameOver();
+                } else if (
+                    starRect.left < playerRect.right &&
+                    starRect.right > playerRect.left &&
+                    starRect.bottom > playerRect.top &&
+                    starRect.top < playerRect.bottom
+                ) {
+                    // Star caught
+                    score++;
+                    scoreElement.textContent = score;
+                    star.remove();
+                } else {
+                    requestAnimationFrame(moveStar);
+                }
+            }
+
+            requestAnimationFrame(moveStar);
+        }
+
+        function checkGameOver() {
+            if (gameActive) {
+                gameActive = false;
+                const finalScore = score;
+                gameOverElement.innerHTML = `
+                    <div style="text-align: center;">
+                        <h3 style="margin-bottom: 10px;">Game Over!</h3>
+                        <p style="margin-bottom: 15px;">Final Score: ${finalScore}</p>
+                        <button style="
+                            background: rgba(255, 255, 255, 0.2);
+                            border: 1px solid rgba(255, 255, 255, 0.3);
+                            border-radius: 5px;
+                            padding: 8px 16px;
+                            color: white;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'"
+                        onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'"
+                        onclick="restartGame()">
+                            Play Again
+                        </button>
+                    </div>
+                `;
+                gameOverElement.style.display = 'block';
+            }
+        }
+
+        function restartGame() {
+            if (!gameActive) {
+                // Clean up any existing stars
+                document.querySelectorAll('.star').forEach(star => star.remove());
+                
+                // Reset game state
+                gameActive = true;
+                score = 0;
+                scoreElement.textContent = '0';
+                gameOverElement.style.display = 'none';
+                
+                // Start the game after a short delay
+                setTimeout(startGame, 100);
+            }
+        }
+
+        function startGame() {
+            gameActive = true;
+            score = 0;
+            scoreElement.textContent = '0';
+            gameOverElement.style.display = 'none';
+
+            // Add mouse move event listener for player movement
+            gameContainer.addEventListener('mousemove', updatePlayerPosition);
+
+            // Start creating stars with longer interval
+            function spawnStar() {
+                if (gameActive) {
+                    createStar();
+                    setTimeout(spawnStar, 1500);
+                }
+            }
+            spawnStar();
+        }
+
+        // Update the hideGame function to remove event listeners
+        function hideGame() {
+            gameContainer.classList.remove('active');
+            gameOverlay.classList.remove('active');
+            gameActive = false;
+            score = 0;
+            scoreElement.textContent = '0';
+            gameOverElement.style.display = 'none';
+            document.querySelectorAll('.star').forEach(star => star.remove());
+            gameContainer.removeEventListener('mousemove', updatePlayerPosition);
+        }
+
+        // Update the player position function
+        function updatePlayerPosition(e) {
+            if (!gameActive) return;
+            const rect = gameContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const position = Math.max(10, Math.min(rect.width - 30, x));
+            player.style.left = `${position}px`;
         }
     </script>
 </body>
