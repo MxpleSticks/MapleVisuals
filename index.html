@@ -915,15 +915,18 @@
             overflow: hidden;
             position: relative;
             margin: 20px 0;
+            border-radius: 12px;
+            padding: 10px 0; /* Add padding to prevent overflow */
         }
 
-        .marquee:before, .marquee:after {
+        .marquee::before, .marquee::after {
             position: absolute;
             top: 0;
             width: 10rem;
             height: 100%;
             content: "";
             z-index: 1;
+            border-radius: 12px;
         }
 
         .marquee:before {
@@ -941,6 +944,7 @@
             height: 100%;
             display: flex;
             animation: scrolling var(--marquee-animation-duration) linear infinite;
+            align-items: center;
         }
 
         @keyframes scrolling {
@@ -952,10 +956,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             flex-shrink: 0;
             width: var(--marquee-element-width);
             padding: 0 20px;
             white-space: nowrap;
+            transform: translateY(-10px); /* Reduced from -15px to -10px */
+            gap: 8px;
         }
 
         .marquee-content img {
@@ -964,8 +971,16 @@
             object-fit: contain;
         }
 
-        .marquee-content img:hover {
-            transform: translateY(-2px);
+        /* Add new style for the alt text */
+        .tech-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .marquee-content li:hover .tech-label {
+            color: rgba(255, 255, 255, 0.9);
         }
 
         @media (max-width: 600px) {
@@ -1059,18 +1074,54 @@
                 <h2 id="skills">What I work with</h2>
                 <div class="marquee">
                     <ul class="marquee-content">
-                        <li><img src="JAVASCRIPT.png"></li>
-                        <li><img src="REACT.png"></li>
-                        <li><img src="HTML5.png"></li>
-                        <li><img src="CSS.png"></li>
-                        <li><img src="GIT.png"></li>
-                        <li><img src="CSHARP.png"></li>
-                        <li><img src="FIGMA.png"></li>
-                        <li><img src="PYTHON.png"></li>
-                        <li><img src="JIRA.png"></li>
-                        <li><img src="JAVA.png"></li>
-                        <li><img src="VSCODE.png"></li>
-                        <li><img src="GITHUB.png"></li>
+                        <li>
+                            <img src="JAVASCRIPT.png">
+                            <span class="tech-label">JavaScript</span>
+                        </li>
+                        <li>
+                            <img src="REACT.png">
+                            <span class="tech-label">React</span>
+                        </li>
+                        <li>
+                            <img src="HTML5.png">
+                            <span class="tech-label">HTML5</span>
+                        </li>
+                        <li>
+                            <img src="CSS.png">
+                            <span class="tech-label">CSS</span>
+                        </li>
+                        <li>
+                            <img src="GIT.png">
+                            <span class="tech-label">Git</span>
+                        </li>
+                        <li>
+                            <img src="CSHARP.png">
+                            <span class="tech-label">C#</span>
+                        </li>
+                        <li>
+                            <img src="FIGMA.png">
+                            <span class="tech-label">Figma</span>
+                        </li>
+                        <li>
+                            <img src="PYTHON.png">
+                            <span class="tech-label">Python</span>
+                        </li>
+                        <li>
+                            <img src="JIRA.png">
+                            <span class="tech-label">Jira</span>
+                        </li>
+                        <li>
+                            <img src="JAVA.png">
+                            <span class="tech-label">Java</span>
+                        </li>
+                        <li>
+                            <img src="VSCODE.png">
+                            <span class="tech-label">VS Code</span>
+                        </li>
+                        <li>
+                            <img src="GITHUB.png">
+                            <span class="tech-label">GitHub</span>
+                        </li>
                     </ul>
                 </div>
 
