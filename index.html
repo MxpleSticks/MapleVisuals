@@ -563,6 +563,7 @@
         }
 
         @keyframes bounce {
+
             0%,
             100% {
                 transform: translateY(0);
@@ -614,6 +615,7 @@
 
         /* Add floating animation */
         @keyframes float {
+
             0%,
             100% {
                 transform: translateY(0);
@@ -916,10 +918,12 @@
             position: relative;
             margin: 20px 0;
             border-radius: 12px;
-            padding: 10px 0; /* Add padding to prevent overflow */
+            padding: 10px 0;
+            /* Add padding to prevent overflow */
         }
 
-        .marquee::before, .marquee::after {
+        .marquee::before,
+        .marquee::after {
             position: absolute;
             top: 0;
             width: 10rem;
@@ -948,8 +952,13 @@
         }
 
         @keyframes scrolling {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+            }
         }
 
         .marquee-content li {
@@ -961,7 +970,8 @@
             width: var(--marquee-element-width);
             padding: 0 20px;
             white-space: nowrap;
-            transform: translateY(-10px); /* Reduced from -15px to -10px */
+            transform: translateY(-10px);
+            /* Reduced from -15px to -10px */
             gap: 8px;
         }
 
@@ -989,7 +999,11 @@
                 --marquee-height: 50px;
                 --marquee-elements-displayed: 3;
             }
-            .marquee:before, .marquee:after { width: 5rem; }
+
+            .marquee:before,
+            .marquee:after {
+                width: 5rem;
+            }
         }
 
         /* Add these new styles */
@@ -1054,10 +1068,12 @@
                 opacity: 0.5;
                 transform: scale(0.95);
             }
+
             50% {
                 opacity: 1;
                 transform: scale(1.05);
             }
+
             100% {
                 opacity: 0.5;
                 transform: scale(0.95);
@@ -1065,42 +1081,24 @@
         }
 
         .game-container {
+            display: none;
             position: fixed;
+            border-radius: 5px;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            width: 400px;
-            height: 300px;
-            background: rgba(15, 15, 15, 0.95);
+            transform: translate(-50%, -50%);
+            width: 450px;
+            /* Increased width */
+            height: 350px;
+            /* Increased height */
+            background: #0f0f0f;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
         .game-container.active {
             transform: translate(-50%, -50%) scale(1);
-        }
-
-        .game-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(3px);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 999;
-        }
-
-        .game-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
+            border-radius: 5px;
         }
 
         .close-game {
@@ -1114,13 +1112,13 @@
             font-size: 20px;
             z-index: 1001;
             transition: color 0.3s ease;
+            border-radius: 5px;
         }
 
         .close-game:hover {
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Keep your existing game styles but remove the margin */
         .player {
             position: absolute;
             bottom: 20px;
@@ -1128,18 +1126,20 @@
             width: 20px;
             height: 20px;
             background: #fff;
-            border-radius: 50%;
+            border-radius: 15px;
             transform: translateX(-50%);
             transition: left 0.1s ease;
         }
 
         .star {
             position: absolute;
-            top: -20px;
+            top: 0px;
+            /* Adjusted to prevent spawning out of the box */
             width: 15px;
             height: 15px;
             background: gold;
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            border-radius: 5px;
         }
 
         .score {
@@ -1148,6 +1148,7 @@
             left: 10px;
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
+            border-radius: 5px;
         }
 
         .game-over {
@@ -1158,7 +1159,9 @@
             color: white;
             font-size: 1.2rem;
             display: none;
+            border-radius: 5px;
         }
+
 
         /* Add these styles to create a fixed container */
         .main-container {
@@ -1171,8 +1174,122 @@
             transform: translateX(-50%);
             overflow: hidden;
         }
+
+        /* Add these new terminal styles */
+        .terminal-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 600px;
+            height: 400px;
+            background: #0f0f0f;
+            /* Match the background color of the site */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Match the border color of the site */
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            color: #fff;
+            /* Match the text color of the site */
+            padding: 20px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .terminal-container.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* Match the border color of the site */
+        }
+
+        .terminal-title {
+            font-size: 14px;
+            opacity: 0.8;
+            color: #fff;
+            /* Match the text color of the site */
+        }
+
+        .terminal-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            /* Match the text color of the site */
+            cursor: pointer;
+            font-size: 20px;
+            padding: 0 5px;
+            transition: color 0.3s ease;
+        }
+
+        .terminal-close:hover {
+            color: rgba(255, 255, 255, 0.9);
+            /* Match the hover color of the site */
+        }
+
+        .terminal-content {
+            height: calc(100% - 40px);
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .terminal-input-line {
+            display: flex;
+            margin: 5px 0;
+        }
+
+        .terminal-prompt {
+            margin-right: 8px;
+            color: #fff;
+            /* Match the text color of the site */
+        }
+
+        .terminal-input {
+            background: none;
+            border: none;
+            color: #fff;
+            /* Match the text color of the site */
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            flex-grow: 1;
+            outline: none;
+        }
+
+        .terminal-output {
+            margin: 5px 0;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.8);
+            /* Match the text color of the site */
+        }
+
+        .terminal-error {
+            color: rgba(255, 0, 0, 0.8);
+            /* Match the error color of the site */
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: #fff;
+            /* Match the cursor color of the site */
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
-    
+
 </head>
 
 <body>
@@ -1241,9 +1358,11 @@
                             Mail
                         </a>
 
-                        <a href="https://www.youtube.com/@maple_sticks5032" target="_blank" class="card-button youtube-button">
+                        <a href="https://www.youtube.com/@maple_sticks5032" target="_blank"
+                            class="card-button youtube-button">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                             </svg>
                             YouTube
                         </a>
@@ -1310,16 +1429,18 @@
 
 
                     <h2 id="about">About</h2>
-                    <p>My journey in <span class="highlight-word">software development</span> began at age 13, driven by an
+                    <p>My journey in <span class="highlight-word">software development</span> began at age 13, driven by
+                        an
                         insatiable curiosity about how things work. What started as simple <span
                             class="highlight-word">HTML</span> experiments has evolved into a deep passion for creating
                         robust, <span class="highlight-word">user-centric</span> applications.</p>
                     <p>Each challenge conquered has opened new doors, pushing me to explore <span
                             class="highlight-word">emerging technologies</span> and <span class="highlight-word">best
-                        practices</span> in software development.</p>
+                            practices</span> in software development.</p>
                     <p>Today, I channel that same curiosity into building <span class="highlight-word">scalable
                             solutions</span> that solve real-world problems. I believe in writing <span
-                            class="highlight-word">clean</span>, <span class="highlight-word">maintainable code</span> and
+                            class="highlight-word">clean</span>, <span class="highlight-word">maintainable code</span>
+                        and
                         creating <span class="highlight-word">intuitive user experiences</span> that make technology
                         accessible to everyone.</p>
                     <h2 id="projects">Projects</h2>
@@ -1329,42 +1450,52 @@
                             <div class="project-description">A database of 3d ascii animations</div>
                             <div class="project-year">2023</div>
                         </a>
-                        
+
                         <a href="https://mxplesticks.github.io/novasnowwatch/" class="project-item">
                             <div class="project-title">Virginia Snow Watch</div>
-                            <div class="project-description">A sleek, responsive website for updates on snow and radars in NOVA</div>
+                            <div class="project-description">A sleek, responsive website for updates on snow and radars
+                                in NOVA</div>
                             <div class="project-year">2024</div>
                         </a>
-                        
+
                         <a href="https://github.com/MxpleSticks/spPi-Stock-Ticker" class="project-item">
                             <div class="project-title">Stock Ticker Application</div>
-                            <div class="project-description">A real-time stock tracking app optimized for Raspberry Pi devices</div>
+                            <div class="project-description">A real-time stock tracking app optimized for Raspberry Pi
+                                devices</div>
                             <div class="project-year">2025</div>
                         </a>
-                        
+
                         <a href="#" class="project-item">
                             <div class="project-title">PS1 Style Horror Game</div>
-                            <div class="project-description">A retro horror game inspired by the aesthetics and mechanics of classic PS1 titles</div>
+                            <div class="project-description">A retro horror game inspired by the aesthetics and
+                                mechanics of classic PS1 titles</div>
                             <div class="project-year">2026</div>
-                        </a>                    
+                        </a>
                     </div>
                     <h2 id="experience">Experience</h2>
                     <p>While my professional journey is just beginning, I've built a strong foundation through <span
-                            class="highlight-word">hands-on project work</span> and continuous learning. My experience spans
+                            class="highlight-word">hands-on project work</span> and continuous learning. My experience
+                        spans
                         <span class="highlight-word">full-stack development</span>, with a focus on creating <span
                             class="highlight-word">responsive web applications</span> using modern <span
-                            class="highlight-word">JavaScript frameworks,</span> <span class="highlight-word">HTML5,</span>
+                            class="highlight-word">JavaScript frameworks,</span> <span
+                            class="highlight-word">HTML5,</span>
                         <span class="highlight-word">and CSS3.</span>
                     </p>
-                    <p>I've developed a practical understanding of <span class="highlight-word">software development</span>
+                    <p>I've developed a practical understanding of <span class="highlight-word">software
+                            development</span>
                         principles through: • Building and deploying <span class="highlight-word">full-stack</span>
                         applications from concept to completion • Implementing responsive designs and optimizing for
-                        performance • <span class="highlight-word">Collaborating</span> with others through version control
-                        using <span class="highlight-word">Git</span> • Writing clean, documented, and maintainable code</p>
+                        performance • <span class="highlight-word">Collaborating</span> with others through version
+                        control
+                        using <span class="highlight-word">Git</span> • Writing clean, documented, and maintainable code
+                    </p>
                     <br />
                     <p>I thrive in dynamic environments where I can contribute to meaningful projects while continuously
-                        expanding my <span class="highlight-word">technical expertise.</span> My goal is to create software
-                        that not only functions flawlessly but also provides genuine <span class="highlight-word">value to
+                        expanding my <span class="highlight-word">technical expertise.</span> My goal is to create
+                        software
+                        that not only functions flawlessly but also provides genuine <span class="highlight-word">value
+                            to
                             its users.</span></p>
                     </p>
 
@@ -1373,8 +1504,26 @@
                         <div class="profile-hint">
                             <span class="hint-text">Found an easter egg! Click to play</span>
                             <svg class="hint-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.5 12a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zM12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zm1.5-10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                <path
+                                    d="M17.5 12a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zM12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zm1.5-10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                             </svg>
+                        </div>
+                    </div>
+
+                    <!-- Add the terminal container before the game container -->
+                    <div class="terminal-container">
+                        <div class="terminal-header">
+                            <span class="terminal-title">Terminal v1.0</span>
+                            <button class="terminal-close">×</button>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-output">Welcome to the Terminal! Type 'help' for available commands.
+                            </div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">&gt;</span>
+                                <input type="text" class="terminal-input" autofocus>
+                                <span class="terminal-cursor"></span>
+                            </div>
                         </div>
                     </div>
 
@@ -1534,7 +1683,7 @@
 
         root.style.setProperty("--marquee-elements", marqueeContent.children.length);
 
-        for(let i=0; i<marqueeElementsDisplayed; i++) {
+        for (let i = 0; i < marqueeElementsDisplayed; i++) {
             marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
         }
 
@@ -1554,22 +1703,36 @@
             gameContainer.classList.add('active');
             gameOverlay.classList.add('active');
             gameActive = true;
+            score = 0;
+            scoreElement.textContent = '0';
+            gameOverElement.style.display = 'none';
+            document.querySelectorAll('.star').forEach(star => star.remove());
             startGame();
         });
 
         // Hide game
         function hideGame() {
             gameContainer.classList.remove('active');
+            gameContainer.style.display = 'none';
             gameOverlay.classList.remove('active');
             gameActive = false;
             score = 0;
             scoreElement.textContent = '0';
             gameOverElement.style.display = 'none';
             document.querySelectorAll('.star').forEach(star => star.remove());
+            gameContainer.removeEventListener('mousemove', updatePlayerPosition);
         }
 
-        closeButton.addEventListener('click', hideGame);
-        gameOverlay.addEventListener('click', hideGame);
+        // Make sure the close button and overlay click handlers are properly set
+        closeButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hideGame();
+        });
+
+        gameOverlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hideGame();
+        });
 
         // Your existing game code here, but update the updatePlayerPosition function:
         function updatePlayerPosition(e) {
@@ -1586,7 +1749,7 @@
         // Add these game functions after your existing script code
         function createStar() {
             if (!gameActive) return;
-            
+
             const star = document.createElement('div');
             star.className = 'star';
             const position = Math.random() * (gameContainer.offsetWidth - 15);
@@ -1661,13 +1824,13 @@
             if (!gameActive) {
                 // Clean up any existing stars
                 document.querySelectorAll('.star').forEach(star => star.remove());
-                
+
                 // Reset game state
                 gameActive = true;
                 score = 0;
                 scoreElement.textContent = '0';
                 gameOverElement.style.display = 'none';
-                
+
                 // Start the game after a short delay
                 setTimeout(startGame, 100);
             }
@@ -1695,6 +1858,7 @@
         // Update the hideGame function to remove event listeners
         function hideGame() {
             gameContainer.classList.remove('active');
+            gameContainer.style.display = 'none';
             gameOverlay.classList.remove('active');
             gameActive = false;
             score = 0;
@@ -1712,6 +1876,163 @@
             const position = Math.max(10, Math.min(rect.width - 30, x));
             player.style.left = `${position}px`;
         }
+
+        // Add this new JavaScript code
+        const terminal = {
+            container: document.querySelector('.terminal-container'),
+            content: document.querySelector('.terminal-content'),
+            input: document.querySelector('.terminal-input'),
+            closeBtn: document.querySelector('.terminal-close'),
+            history: [],
+            historyIndex: -1,
+
+            init() {
+                this.input.addEventListener('keydown', this.handleInput.bind(this));
+                this.closeBtn.addEventListener('click', () => {
+                    this.container.classList.remove('active');
+                    gameOverlay.classList.remove('active');
+                });
+
+                // Update profile click handler
+                profileContainer.addEventListener('click', () => {
+                    this.container.classList.add('active');
+                    gameOverlay.classList.add('active');
+                    this.input.focus();
+                });
+            },
+
+            handleInput(e) {
+                if (e.key === 'Enter') {
+                    const command = this.input.value.trim().toLowerCase();
+                    this.history.push(command);
+                    this.historyIndex = this.history.length;
+                    this.processCommand(command);
+                    this.input.value = '';
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (this.historyIndex > 0) {
+                        this.historyIndex--;
+                        this.input.value = this.history[this.historyIndex];
+                    }
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (this.historyIndex < this.history.length - 1) {
+                        this.historyIndex++;
+                        this.input.value = this.history[this.historyIndex];
+                    } else {
+                        this.historyIndex = this.history.length;
+                        this.input.value = '';
+                    }
+                }
+            },
+
+            processCommand(command) {
+                this.addOutput(`> ${command}`);
+
+                switch (command) {
+                    case 'help':
+                        this.addOutput(`
+=== Terminal Commands ===
+1. Game Commands:
+   | "games"         List all available games
+
+2. Terminal Commands:
+   | "help"          Show this help message
+   | "clear"         Clear the terminal screen
+   | "about"         Show terminal information
+                        `);
+                        break;
+
+                    case 'games':
+                        this.addOutput(`
+=== Available Games ===
+1. "starcatcher"
+2. "snake"        - [COMING SOON]
+3. "tetris"       - [COMING SOON]
+                        `);
+                        break;
+
+                    case 'starcatcher':
+                        this.addOutput('Launching Star Catcher...');
+                        setTimeout(() => {
+                            // Hide terminal
+                            this.container.classList.remove('active');
+
+                            // Show game and overlay
+                            gameContainer.style.display = 'block';
+                            gameContainer.classList.add('active');
+                            gameOverlay.classList.add('active');
+
+                            // Reset game state
+                            gameActive = true;
+                            score = 0;
+                            scoreElement.textContent = '0';
+                            gameOverElement.style.display = 'none';
+
+                            // Clean up any existing stars
+                            document.querySelectorAll('.star').forEach(star => star.remove());
+
+                            // Start the game
+                            startGame();
+                        }, 1000);
+                        break;
+
+                    case 'snake':
+                        this.addOutput('[COMING SOON] Snake game is currently in development.');
+                        break;
+
+                    case 'tetris':
+                        this.addOutput('[COMING SOON] Tetris game is currently in development.');
+                        break;
+
+                    case 'clear':
+                        this.content.innerHTML = '';
+                        this.addInputLine();
+                        break;
+
+                    case 'about':
+                        this.addOutput(`
+=== Terminal v1.0 ===
+A retro-style gaming interface
+Type 'help' for commands
+Type 'games' to see available games
+                        `);
+                        break;
+
+                    default:
+                        if (command.startsWith('play')) {
+                            this.addOutput('Note: No need to type "play" - just type the game name directly (e.g., "starcatcher")', true);
+                        } else {
+                            this.addOutput(`Command not found: ${command}. Type 'help' for available commands.`, true);
+                        }
+                }
+            },
+
+            addOutput(text, isError = false) {
+                const output = document.createElement('div');
+                output.className = `terminal-output${isError ? ' terminal-error' : ''}`;
+                output.textContent = text;
+                this.content.insertBefore(output, this.content.lastElementChild);
+                this.content.scrollTop = this.content.scrollHeight;
+            },
+
+            addInputLine() {
+                const inputLine = document.createElement('div');
+                inputLine.className = 'terminal-input-line';
+                inputLine.innerHTML = `
+                    <span class="terminal-prompt">&gt;</span>
+                    <input type="text" class="terminal-input" autofocus>
+                    <span class="terminal-cursor"></span>
+                `;
+                this.content.appendChild(inputLine);
+                this.input = inputLine.querySelector('.terminal-input');
+                this.input.addEventListener('keydown', this.handleInput.bind(this));
+                this.input.focus();
+            }
+        };
+
+        // Initialize the terminal
+        terminal.init();
     </script>
 </body>
 
