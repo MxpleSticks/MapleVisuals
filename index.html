@@ -762,7 +762,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 60px;
             margin-bottom: 30px;
             opacity: 0;
             animation: blurIn 1s ease-out forwards;
@@ -1011,9 +1011,12 @@
             position: relative;
             width: 185px;
             height: 185px;
-            margin-left: 190px;
+            margin: 40px auto;
+            /* Center the container and add vertical spacing */
             cursor: pointer;
             transition: transform 0.3s ease;
+            margin-left: 190px;
+            /* Keep the existing left margin */
         }
 
         .profile-container:hover {
@@ -1356,12 +1359,17 @@
                     <h1 class="animated-name">Bennett Forcier</h1>
                     <div class="location-container">
                         <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor" />
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                                fill="currentColor" />
                         </svg>
                         <span class="location-text">Virginia, United States</span>
                     </div>
                     <p>Aspiring <span class="highlight-word">Software Developer</span></p>
-                    <p>Crafting elegant solutions through code. Dedicated to building scalable applications that <span class="highlight-word">make a difference.</span> Driven by <span class="highlight-word">curiosity</span> and committed to continuous learning in the ever-evolving tech landscape.</p>
+                    <p>Building sleek, efficient solutions through code. Passionate about creating scalable applications
+                        that <span class="highlight-word">make an impact.</span> Fueled by <span
+                            class="highlight-word">curiosity</span> and always eager to learn as the tech world keeps
+                        evolving.</p>
                     <br />
                     <br />
                     <br />
@@ -1378,26 +1386,34 @@
                     <div class="button-container">
                         <a href="https://github.com/MxpleSticks" target="_blank" class="card-button">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                             </svg> Github </a>
-                        <a href="https://mail.google.com/mail/u/4/#inbox?compose=GTvVlcRzBxwJnMdZfXTstvZwxbdspRtrzVMBzGtcqkTDgcxJvqmlWmRmmddpBQtpPdmbJtrzWNtTg" class="card-button">
+                        <a href="https://mail.google.com/mail/u/4/#inbox?compose=GTvVlcRzBxwJnMdZfXTstvZwxbdspRtrzVMBzGtcqkTDgcxJvqmlWmRmmddpBQtpPdmbJtrzWNtTg"
+                            class="card-button">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                    stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg> Mail </a>
-                        <a href="https://www.youtube.com/@maple_sticks5032" target="_blank" class="card-button youtube-button">
+                        <a href="https://www.youtube.com/@maple_sticks5032" target="_blank"
+                            class="card-button youtube-button">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                             </svg> YouTube </a>
                     </div>
                 </div>
             </div>
             <div class="column">
-                <div class="scroll-content" style="margin-top: 75px; margin-bottom: 100px; padding-right: 350px; height: 700px; overflow-y: auto;">
+                <div class="scroll-content"
+                    style="margin-top: 75px; margin-bottom: 100px; padding-right: 350px; height: 700px; overflow-y: auto;">
                     <h2 id="skills">What I work with</h2>
                     <div class="marquee">
                         <ul class="marquee-content">
                             <li>
-                                <img src="JAVASCRIPTwork.png">
+                                <img src="JAVASCRIPT.png">
                                 <span class="tech-label">JavaScript</span>
                             </li>
                             <li>
@@ -1447,29 +1463,47 @@
                         </ul>
                     </div>
                     <h2 id="about">About</h2>
-                    <p>My journey in <span class="highlight-word">software development</span> began at age 13, driven by an insatiable curiosity about how things work. What started as simple <span class="highlight-word">HTML</span> experiments has evolved into a deep passion for creating robust, <span class="highlight-word">user-centric</span> applications.</p>
-                    <p>Each challenge conquered has opened new doors, pushing me to explore <span class="highlight-word">emerging technologies</span> and <span class="highlight-word">best practices</span> in software development.</p>
-                    <p>Today, I channel that same curiosity into building <span class="highlight-word">scalable solutions</span> that solve real-world problems. I believe in writing <span class="highlight-word">clean</span>, <span class="highlight-word">maintainable code</span> and creating <span class="highlight-word">intuitive user experiences</span> that make technology accessible to everyone.</p>
+                    <p>From the moment I first peeked under the hood of a website at age 13, I was hooked! What started
+                        as tinkering with <span class="highlight-word">HTML</span> tags (and probably breaking more
+                        things than I fixed) blossomed into a full-blown love affair with crafting <span
+                            class="highlight-word">user-centric</span> experiences that make people smile.</p>
+
+                    <p>Every bug has been a puzzle to solve, every error message a new mystery to unravel. Through
+                        countless late-night coding sessions and "aha!" moments, I've embraced each challenge as a
+                        chance to level up my <span class="highlight-word">software development</span> skills and
+                        explore <span class="highlight-word">new technologies</span>.</p>
+
+                    <p>These days, you'll find me architecting <span class="highlight-word">scalable solutions</span>
+                        that can handle whatever the internet throws at them. I'm a bit of a neat freak when it comes to
+                        <span class="highlight-word">clean</span>, <span class="highlight-word">maintainable code</span>
+                        - because good code is like a well-organized toolbox! My true passion? Creating <span
+                            class="highlight-word">intuitive user experiences</span> so smooth that using them feels
+                        like magic, making technology accessible to everyone, whether they speak 'geek' or not!
+                    </p>
                     <h2 id="projects">Projects</h2>
                     <div class="projects-list">
                         <a href="#" class="project-item">
                             <div class="project-title">PS1 Style Horror Game</div>
-                            <div class="project-description">A retro horror game inspired by the aesthetics and mechanics of classic PS1 titles</div>
+                            <div class="project-description">A retro horror game inspired by the aesthetics and
+                                mechanics of classic PS1 titles</div>
                             <div class="project-year">2026</div>
                         </a>
                         <a href="https://mxplesticks.github.io/novasnowwatch/" class="project-item">
                             <div class="project-title">Virginia Snow Watch</div>
-                            <div class="project-description">A sleek, responsive website for updates on snow and radars in NOVA</div>
+                            <div class="project-description">A sleek, responsive website for updates on snow and radars
+                                in NOVA</div>
                             <div class="project-year">2024</div>
                         </a>
-                        <a href="https://mxplesticks.github.io/MapleSolve/" class="project-item">
-                            <div class="project-title">MapleSolve</div>
-                            <div class="project-description">An AI-powered tool that helps with math problems</div>
+                        <a href="https://mxplesticks.github.io/PaperPal/" class="project-item">
+                            <div class="project-title">PaperPal</div>
+                            <div class="project-description">An AI-powered essay grader that helps you improve your
+                                writing</div>
                             <div class="project-year">2024</div>
-                        </a>                        
+                        </a>
                         <a href="https://github.com/MxpleSticks/spPi-Stock-Ticker" class="project-item">
                             <div class="project-title">Stock Ticker Application</div>
-                            <div class="project-description">A real-time stock tracking app optimized for Raspberry Pi devices</div>
+                            <div class="project-description">A real-time stock tracking app optimized for Raspberry Pi
+                                devices</div>
                             <div class="project-year">2025</div>
                         </a>
                         <a href="https://github.com/MxpleSticks/Maple-Syrup" class="project-item">
@@ -1479,50 +1513,65 @@
                         </a>
                     </div>
                     <h2 id="experience">Experience</h2>
-                    <p>While my professional journey is just beginning, I've built a strong foundation through <span class="highlight-word">hands-on project work</span> and continuous learning. My experience spans <span class="highlight-word">full-stack development</span>, with a focus on creating <span class="highlight-word">responsive web applications</span> using modern <span class="highlight-word">JavaScript frameworks,</span> <span class="highlight-word">HTML5,</span>
-                        <span class="highlight-word">and CSS3.</span>
-                    </p>
-                    <p>I've developed a practical understanding of <span class="highlight-word">software development</span> principles through: • Building and deploying <span class="highlight-word">full-stack</span> applications from concept to completion • Implementing responsive designs and optimizing for performance • <span class="highlight-word">Collaborating</span> with others through version control using <span class="highlight-word">Git</span> • Writing clean, documented, and maintainable code </p>
-                    <br />
-                    <p>I thrive in dynamic environments where I can contribute to meaningful projects while continuously expanding my <span class="highlight-word">technical expertise.</span> My goal is to create software that not only functions flawlessly but also provides genuine <span class="highlight-word">value to its users.</span></p>
-                    </p>
-                    <div class="profile-container">
+                    <p>Fresh on the professional scene but far from a rookie! Through <span
+                            class="highlight-word">hands-on projects</span> and an insatiable appetite for learning,
+                        I've been crafting my skills in <span class="highlight-word">backend development</span>,
+                        building robust and <span class="highlight-word">scalable systems</span> that pack a punch.</p>
+
+                    <p>My <span class="highlight-word">software development</span> journey has been quite the adventure,
+                        with wins including: orchestrating <span class="highlight-word">backend architectures</span>
+                        from the ground up (and watching them soar!), fine-tuning APIs until they purr like well-oiled
+                        machines, wrangling databases into perfect harmony, and diving into <span
+                            class="highlight-word">collaborative</span> code adventures using <span
+                            class="highlight-word">Git</span>. Oh, and I'm a bit obsessed with writing code so clean it
+                        sparkles!</p>
+
+                    <p>Put me in a fast-paced environment, and I'm like a kid in a candy store - eager to jump into
+                        exciting projects and level up my <span class="highlight-word">technical expertise</span>. My
+                        mission? Crafting backend systems that don't just hum along quietly - they create real <span
+                            class="highlight-word">impact for users</span> that makes them go "Wow!"</p>
+                    
+                    <div class="profile-container" style="margin: 40px auto;">
                         <img src="NAME.png" class="profile-image">
                         <div class="profile-hint">
                             <span class="hint-text">Found an easter egg! Click to play</span>
                             <svg class="hint-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.5 12a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zM12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zm1.5-10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                <path
+                                    d="M17.5 12a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zM12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zm1.5-10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                             </svg>
                         </div>
                     </div>
-                    <!-- Add the terminal container before the game container -->
-                    <div class="terminal-container">
-                        <div class="terminal-header">
-                            <span class="terminal-title">Terminal v1.0</span>
-                            <button class="terminal-close">×</button>
+                </div>
+
+
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-title">Terminal v1.0</span>
+                        <button class="terminal-close">×</button>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-output">Welcome to the Terminal! Type 'help' for available commands.
                         </div>
-                        <div class="terminal-content">
-                            <div class="terminal-output">Welcome to the Terminal! Type 'help' for available commands. </div>
-                            <div class="terminal-input-line">
-                                <span class="terminal-prompt">&gt;</span>
-                                <input type="text" class="terminal-input" autofocus>
-                                <span class="terminal-cursor"></span>
-                            </div>
+                        <div class="terminal-input-line">
+                            <span class="terminal-prompt">&gt;</span>
+                            <input type="text" class="terminal-input" autofocus>
+                            <span class="terminal-cursor"></span>
                         </div>
                     </div>
-                    <!-- Add the game container and overlay -->
-                    <div class="game-overlay"></div>
-                    <div class="game-container">
-                        <button class="close-game">×</button>
-                        <div class="player"></div>
-                        <div class="score">Score: <span>0</span></div>
-                        <div class="game-over">Game Over! Click to restart</div>
-                    </div>
+                </div>
+                <!-- Add the game container and overlay -->
+                <div class="game-overlay"></div>
+                <div class="game-container">
+                    <button class="close-game">×</button>
+                    <div class="player"></div>
+                    <div class="score">Score: <span>0</span></div>
+                    <div class="game-over">Game Over! Click to restart</div>
                 </div>
             </div>
         </div>
     </div>
-    
+    </div>
+
     <script>
         const cursor = document.querySelector('.cursor-gradient');
         let currentCursorX = 0;
